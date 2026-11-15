@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>nāda: giving the earth a voice</title>
-<meta name="description" content="Two NASA visualisations of the Earth at night, turned into dark, atmospheric R&B by their own data. A 2026 NASA Space Apps Challenge project.">
+<meta name="description" content="Two NASA videos of the Earth at night, measured frame by frame and written into two R&amp;B tracks I produced. A 2026 NASA Space Apps Challenge project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=2">
 </head>
 <body>
 <a class="skip" href="#listen">Skip to the tracks</a>
@@ -38,8 +38,8 @@
   <section class="split" aria-labelledby="meaning-h">
     <h2 id="meaning-h" class="display">the universe begins as sound</h2>
     <div class="prose">
-      <p><em class="nada">Nāda</em> is Sanskrit for sound. In Indian philosophy, the universe itself begins as vibration.</p>
-      <p>NASA's satellites watch the Earth at night, but their images are silent. This project turns two of them into music: <cite>Lightning Events Detected from the International Space Station, 2017 to 2023</cite> and <cite>Change in Night Lights between 2012 and 2023</cite>, both made by NASA's Scientific Visualization Studio. The lightning and the city lights decide the notes, the rhythm and the dynamics, and I produced what they played into dark and atmospheric R&amp;B.</p>
+      <p><em class="nada">nāda</em> is Sanskrit for sound. In Indian philosophy, the universe itself begins as vibration.</p>
+      <p>NASA's satellites watch the Earth at night, but their images are silent. This project turns two of them into music: <cite>Lightning Events Detected from the International Space Station, 2017 to 2023</cite> and <cite>Change in Night Lights between 2012 and 2023</cite>, both made by NASA's Scientific Visualization Studio. The lightning and the city lights decide the notes, the rhythm and the dynamics, and I produced what the data played into dark and atmospheric R&amp;B, by writing the chords, choosing and designing the sound, recording the vocals and bringing everything together in Logic Pro.</p>
     </div>
   </section>
 
@@ -60,7 +60,7 @@
           <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
         </button>
         <div class="track-head"><h3>lightning</h3><span class="dur">3:37</span></div>
-        <p>Six years of lightning recorded by the Lightning Imaging Sensor on the International Space Station, 2017 to 2023. From about 400 kilometres up, the sensor logged the time and location of every flash it saw across the tropics and mid-latitudes, and NASA's visualisation gathers those flashes into a rolling ten-day view of the whole planet. Storm activity sets the loudness of the chords, lightning surges sound the hi-hat rolls, and the position of the storms moves the voice across the stereo field.</p>
+        <p>Six years of lightning recorded by the Lightning Imaging Sensor on the International Space Station, 2017 to 2023. From about 400 kilometres up, the sensor logged the time and location of every flash observed across the tropics and mid-latitudes, and NASA's visualisation gathers those flashes into a ten day view of the whole planet. Storm activity sets the loudness of the chords, lightning surges sound the hi-hat rolls, and the position of the storms moves the voice across the stereo field.</p>
       </article>
     </div>
   </section>
@@ -69,13 +69,13 @@
     <h2 id="how-h" class="display big">how the earth plays</h2>
     <p class="lede">Every sound in <em class="nada">nāda</em> is triggered or shaped by a measurement taken from NASA's video, and every rule has a fixed, stated threshold.</p>
     <ol class="steps">
-      <li><h3>measure</h3><p>A Python script reads every frame of the two videos, around 7,800 in total, and measures what is on screen. It counts pixels by colour to work out how much lightning or city light is visible, where on the globe the storms are, and how much of the map shows light gained in purple or light lost in orange. Each count becomes a value between zero and one that rises and falls across the video.</p></li>
-      <li><h3>translate</h3><p>Each measurement is linked to one decision in the music, and that decision only happens once the measurement crosses a fixed level. To find a lightning surge, the script compares each moment with the average of the second and a half around it. When lightning jumps more than 25% above that average, the drums play a fast hi-hat roll on the beat where the jump happened, at most once per bar.</p></li>
+      <li><h3>measure</h3><p>A Python script reads every frame of the two videos, around 7,800 in total, and measures what is on screen. It counts pixels by colour to work out how much lightning or city light is visible, where the storms are on the globe, and how much of the map shows light gained in purple or light lost in orange. Each count becomes a value between zero and one that rises and drops across the video.</p></li>
+      <li><h3>translate</h3><p>Each measurement is linked to one decision in the music, and that decision only takes place once the measurement crosses a fixed level. To find a lightning surge, the script compares each moment with the average of the second and a half around it. When lightning jumps more than 25% above that average, the drums play a fast hi-hat roll on the beat where the jump happened, at most once per bar.</p></li>
       <li><h3>constrain</h3><p>All notes come from G minor and its pentatonic scale, at 88.6 beats per minute, the tempo at which both videos fit the bar grid exactly. Data mapped straight onto pitch tends to produce notes that clash, which is a common problem in data sonification, so here the data only chooses where it lands within a scale whose notes always sit well together. It decides which notes play and when, and every one of them stays in key.</p></li>
-      <li><h3>produce</h3><p>The data arrives in Logic Pro as MIDI, the note-by-note score a producer works from. I chose and shaped every sound, recorded and processed the vocal from my own voice, and mixed both tracks.</p></li>
+      <li><h3>produce</h3><p>The data is imported into Logic Pro as MIDI, which is a note-by-note score to work and produce from. I chose and designed the sound, chords and beat, recorded my vocals and mixed both tracks.</p></li>
     </ol>
     <div class="figs">
-      <figure><img src="img/data.jpg" alt="Two charts. Top: lightning activity across the lightning track, with the surges that trigger hi-hat rolls marked beneath. Bottom: city glow and light gained against lost across the night lights track." loading="lazy"><figcaption>The measurements each track follows</figcaption></figure>
+      <figure><img src="img/data.jpg?v=2" alt="Two charts. Top: lightning activity across the lightning track, with the surges that trigger hi-hat rolls marked beneath. Bottom: city glow and light gained against lost across the night lights track." loading="lazy"><figcaption>The measurements each track follows</figcaption></figure>
       <figure><video src="video/session.mp4" autoplay muted loop playsinline controls aria-label="The Logic Pro session for night lights playing, with the data-generated MIDI regions on each track"></video><figcaption>Inside the session</figcaption></figure>
     </div>
     <div class="limits">
@@ -88,7 +88,7 @@
   <section id="heard" class="split" aria-labelledby="heard-h">
     <h2 id="heard-h" class="display">built to be heard</h2>
     <div class="prose">
-      <p>Earth science is usually shared as images, which leaves out blind and low-vision audiences. Every track carries a written description of what is happening and why, and the site works fully with a keyboard and a screen reader.</p>
+      <p>Earth science is usually shared as images, which leaves out blind and low-vision audiences. Every track carries a written description of how the data changes the music, and the site works fully with a keyboard and a screen reader.</p>
       <p class="muted">Made for the 2026 NASA Space Apps Challenge: The Earth Information Jukebox.</p>
     </div>
   </section>
