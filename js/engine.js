@@ -17,17 +17,17 @@ const MAPPINGS = {
       params: { cutoff: 300 * 2 ** (act * 5), reverb: 0.12 + 0.45 * act, bloom: rolling ? Math.min(surge, 1) : 0, pan },
       label: d.dates[i],
       readouts: [
-        { label: 'Lightning on screen', value: act.toFixed(2),
+        { label: 'Lightning activity', value: act.toFixed(2),
           effect: act > 0.6 ? 'Above 0.6, so the 808 glides into the next chord'
             : act > 0.45 ? 'Above 0.45, so an extra kick lands before beat four'
-            : 'Quiet storms, so the chords play softer' },
+            : 'The chords play softer while storms are quiet' },
         { label: 'Lightning surge', value: rolling ? '+' + Math.round(Math.min(surge, 9) * 100) + '%' : 'steady',
-          effect: rolling ? '25% above the last second and a half, so the hi-hats roll' : 'No sudden jump, so the hi-hats keep time' },
-        { label: 'Where the storms are', value: cy < 0.45 ? 'north' : cy > 0.55 ? 'south' : 'near the equator',
-          effect: cy < 0.45 ? 'Storms further north pitch my vocal higher'
-            : cy > 0.55 ? 'Storms further south pitch my vocal lower' : 'My vocal sits in its middle range' },
+          effect: rolling ? 'More than 25% above the recent level, so the hi-hats roll' : 'Below the 25% threshold, so the hi-hats keep time' },
+        { label: 'Storm position', value: cy < 0.45 ? 'north' : cy > 0.55 ? 'south' : 'near the equator',
+          effect: cy < 0.45 ? 'Storms further north lift my voice track to higher notes'
+            : cy > 0.55 ? 'Storms further south bring the voice down' : 'The voice sits in its middle range' },
         { label: 'East or west', value: pan > 0.15 ? 'east' : pan < -0.15 ? 'west' : 'centre',
-          effect: 'My vocal follows the storms to the ' + (pan > 0.15 ? 'right' : pan < -0.15 ? 'left' : 'centre') },
+          effect: 'My self-recorded vocals follow the storms to the ' + (pan > 0.15 ? 'right' : pan < -0.15 ? 'left' : 'centre') },
       ],
     };
   },
@@ -43,10 +43,10 @@ const MAPPINGS = {
       label: String(d.years[i]),
       regions: Object.keys(REGIONS).map((k) => ({ name: REGIONS[k], glow: f[k + '_glow'][i] })),
       readouts: [
-        { label: 'City light on screen', value: glow.toFixed(2), effect: 'Brighter frames open up the chords' },
+        { label: 'City glow', value: glow.toFixed(2), effect: 'The chords become fuller as the world gets brighter :)' },
         { label: 'Light gained against lost', value: g === 0 ? 'shown later' : (g > 0 ? '+' : '') + g.toFixed(2),
-          effect: g > 0.15 ? 'Above 0.15, so the chords take the brighter C9'
-            : g < -0.3 ? 'Below minus 0.3, so the drums fall silent' : 'The chords stay in G minor' },
+          effect: g > 0.15 ? 'Above 0.15, chords formed by a brighter C9'
+            : g < -0.3 ? 'Below minus 0.3, the drums fall silent' : 'The chords stay in G minor' },
       ],
     };
   },
