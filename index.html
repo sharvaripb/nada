@@ -47,20 +47,20 @@
     <h2 id="listen-h" class="display big">listen</h2>
     <div class="tracks">
       <article class="track">
-        <button class="track-open" data-track="lightning" aria-label="Play lightning, 3 minutes 37 seconds">
-          <img src="img/lightning.jpg" alt="" width="1280" height="959">
-          <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
-        </button>
-        <div class="track-head"><h3>lightning</h3><span class="dur">3:37</span></div>
-        <p>Six years of lightning recorded by the Lightning Imaging Sensor on the International Space Station, 2017 to 2023. From about 400 kilometres up, the sensor logged the time and location of every flash it saw across the tropics and mid-latitudes, and NASA's visualisation gathers those flashes into a rolling ten-day view of the whole planet. Storm activity sets the loudness of the chords, lightning surges sound the hi-hat rolls, and the position of the storms moves the voice across the stereo field.</p>
-      </article>
-      <article class="track">
         <button class="track-open" data-track="nightlights" aria-label="Play night lights, 1 minute 27 seconds">
           <img src="img/nightlights.jpg" alt="" width="1440" height="810">
           <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
         </button>
         <div class="track-head"><h3>night lights</h3><span class="dur">1:27</span></div>
         <p>Twelve years of city light from NASA's Black Marble record, 2012 to 2023. Black Marble comes from the VIIRS instrument on the Suomi NPP satellite, which is sensitive enough to pick up the glow of towns, roads and ports from orbit, and NASA used it to map where the world grew brighter or darker over a decade. The chords begin to lift as the cities start to brighten. India, the Eastern Mediterranean, Western Europe and Ukraine each have their own instrument, and the drums fall silent where light was lost, so the rhythm of the track is kept only by the places that are still lit.</p>
+      </article>
+      <article class="track">
+        <button class="track-open" data-track="lightning" aria-label="Play lightning, 3 minutes 37 seconds">
+          <img src="img/lightning.jpg" alt="" width="1280" height="959">
+          <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+        </button>
+        <div class="track-head"><h3>lightning</h3><span class="dur">3:37</span></div>
+        <p>Six years of lightning recorded by the Lightning Imaging Sensor on the International Space Station, 2017 to 2023. From about 400 kilometres up, the sensor logged the time and location of every flash it saw across the tropics and mid-latitudes, and NASA's visualisation gathers those flashes into a rolling ten-day view of the whole planet. Storm activity sets the loudness of the chords, lightning surges sound the hi-hat rolls, and the position of the storms moves the voice across the stereo field.</p>
       </article>
     </div>
   </section>
@@ -76,7 +76,7 @@
     </ol>
     <div class="figs">
       <figure><img src="img/data.jpg" alt="Two charts. Top: lightning activity across the lightning track, with the surges that trigger hi-hat rolls marked beneath. Bottom: city glow and light gained against lost across the night lights track." loading="lazy"><figcaption>The measurements each track follows</figcaption></figure>
-      <figure><img src="img/session.jpg" alt="The Logic Pro session, with the data-generated MIDI regions and the lightning video loaded" loading="lazy"><figcaption>Inside the session</figcaption></figure>
+      <figure><video src="video/session.mp4" autoplay muted loop playsinline controls aria-label="The Logic Pro session for night lights playing, with the data-generated MIDI regions on each track"></video><figcaption>Inside the session</figcaption></figure>
     </div>
     <div class="limits">
       <h3 class="display small">limits</h3>
@@ -108,7 +108,7 @@
   <div class="p-top">
     <button id="p-close" class="p-link" type="button"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Back to the gallery</button>
     <h2 id="player-title" class="p-title">lightning</h2>
-    <button id="p-describe" class="p-pill" type="button" aria-pressed="true">Describe what I hear</button>
+    <button id="p-describe" class="p-pill" type="button" aria-pressed="true">The role of the data in making this track come alive</button>
   </div>
   <aside class="p-readouts" aria-label="What the data is doing to the sound">
     <p class="p-kicker">what the earth is playing now</p>
@@ -124,7 +124,6 @@
     </div>
     <div class="p-row left">
       <button id="p-play" class="p-play" type="button" aria-label="Play"><svg id="p-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
-      <p class="p-help">Space plays or pauses. The arrow keys skip five seconds. Escape closes the player.</p>
     </div>
   </div>
   <div id="p-loading" class="p-loading" role="status"><p>Loading the stems… <span id="p-pct">0%</span></p></div>
