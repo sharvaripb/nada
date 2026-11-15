@@ -1,0 +1,3 @@
+numpy
+pandas
+pretty_midi

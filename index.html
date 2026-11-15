@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nāda: giving the earth a voice</title>
+<meta name="description" content="Two NASA visualisations of the Earth at night, turned into dark, atmospheric R&B by their own data. A 2026 NASA Space Apps Challenge project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#listen">Skip to the tracks</a>
+<svg class="grain" aria-hidden="true"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+
+<header class="top">
+  <a class="wordmark" href="#top" aria-label="nāda, back to the top">nāda</a>
+  <nav aria-label="Main">
+    <a href="#listen">listen</a>
+    <a href="#how">how the earth plays</a>
+    <a href="#heard">about</a>
+  </nav>
+</header>
+
+<main>
+  <section id="top" class="hero" aria-label="Introduction">
+    <div class="hero-sticky">
+      <img id="globe" class="globe" src="globe/g001.jpg" alt="The Earth at night seen from space, turning as you scroll, with lightning flashing as yellow points across the tropics" width="640" height="640">
+      <div class="hero-title">
+        <h1>nāda</h1>
+        <p class="tagline">giving the earth a voice</p>
+      </div>
+      <p class="hint">Scroll to turn the Earth. Every storm you pass is a note.</p>
+    </div>
+  </section>
+
+  <section class="split" aria-labelledby="meaning-h">
+    <h2 id="meaning-h" class="display">the universe begins as sound</h2>
+    <div class="prose">
+      <p><em class="nada">Nāda</em> is Sanskrit for sound. In Indian philosophy, the universe itself begins as vibration.</p>
+      <p>NASA's satellites watch the Earth at night, but their images are silent. This project turns two of them into music: <cite>Lightning Events Detected from the International Space Station, 2017 to 2023</cite> and <cite>Change in Night Lights between 2012 and 2023</cite>, both made by NASA's Scientific Visualization Studio. The lightning and the city lights decide the notes, the rhythm and the dynamics, and I produced what they played into dark and atmospheric R&amp;B.</p>
+    </div>
+  </section>
+
+  <section id="listen" class="listen" aria-labelledby="listen-h">
+    <h2 id="listen-h" class="display big">listen</h2>
+    <div class="tracks">
+      <article class="track">
+        <button class="track-open" data-track="lightning" aria-label="Play lightning, 3 minutes 37 seconds">
+          <img src="img/lightning.jpg" alt="" width="1280" height="959">
+          <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+        </button>
+        <div class="track-head"><h3>lightning</h3><span class="dur">3:37</span></div>
+        <p>Six years of lightning recorded by the Lightning Imaging Sensor on the International Space Station, 2017 to 2023. From about 400 kilometres up, the sensor logged the time and location of every flash it saw across the tropics and mid-latitudes, and NASA's visualisation gathers those flashes into a rolling ten-day view of the whole planet. Storm activity sets the loudness of the chords, lightning surges sound the hi-hat rolls, and the position of the storms moves the voice across the stereo field.</p>
+      </article>
+      <article class="track">
+        <button class="track-open" data-track="nightlights" aria-label="Play night lights, 1 minute 27 seconds">
+          <img src="img/nightlights.jpg" alt="" width="1440" height="810">
+          <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+        </button>
+        <div class="track-head"><h3>night lights</h3><span class="dur">1:27</span></div>
+        <p>Twelve years of city light from NASA's Black Marble record, 2012 to 2023. Black Marble comes from the VIIRS instrument on the Suomi NPP satellite, which is sensitive enough to pick up the glow of towns, roads and ports from orbit, and NASA used it to map where the world grew brighter or darker over a decade. The chords begin to lift as the cities start to brighten. India, the Eastern Mediterranean, Western Europe and Ukraine each have their own instrument, and the drums fall silent where light was lost, so the rhythm of the track is kept only by the places that are still lit.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="how" class="how" aria-labelledby="how-h">
+    <h2 id="how-h" class="display big">how the earth plays</h2>
+    <p class="lede">Every sound in <em class="nada">nāda</em> is triggered or shaped by a measurement taken from NASA's video, and every rule has a fixed, stated threshold.</p>
+    <ol class="steps">
+      <li><h3>measure</h3><p>A Python script reads every frame of the two videos, around 7,800 in total, and measures what is on screen. It counts pixels by colour to work out how much lightning or city light is visible, where on the globe the storms are, and how much of the map shows light gained in purple or light lost in orange. Each count becomes a value between zero and one that rises and falls across the video.</p></li>
+      <li><h3>translate</h3><p>Each measurement is linked to one decision in the music, and that decision only happens once the measurement crosses a fixed level. To find a lightning surge, the script compares each moment with the average of the second and a half around it. When lightning jumps more than 25% above that average, the drums play a fast hi-hat roll on the beat where the jump happened, at most once per bar.</p></li>
+      <li><h3>constrain</h3><p>All notes come from G minor and its pentatonic scale, at 88.6 beats per minute, the tempo at which both videos fit the bar grid exactly. Data mapped straight onto pitch tends to produce notes that clash, which is a common problem in data sonification, so here the data only chooses where it lands within a scale whose notes always sit well together. It decides which notes play and when, and every one of them stays in key.</p></li>
+      <li><h3>produce</h3><p>The data arrives in Logic Pro as MIDI, the note-by-note score a producer works from. I chose and shaped every sound, recorded and processed the vocal from my own voice, and mixed both tracks.</p></li>
+    </ol>
+    <div class="figs">
+      <figure><img src="img/data.jpg" alt="Two charts. Top: lightning activity across the lightning track, with the surges that trigger hi-hat rolls marked beneath. Bottom: city glow and light gained against lost across the night lights track." loading="lazy"><figcaption>The measurements each track follows</figcaption></figure>
+      <figure><img src="img/session.jpg" alt="The Logic Pro session, with the data-generated MIDI regions and the lightning video loaded" loading="lazy"><figcaption>Inside the session</figcaption></figure>
+    </div>
+    <div class="limits">
+      <h3 class="display small">limits</h3>
+      <p>The measurements describe the video, so they are relative to it. An activity of 0.6 means the screen is sixty percent of the way between the quietest and busiest moments in that clip, which shows how lightning compares across those six years without counting individual strikes. That makes <em class="nada">nāda</em> a sonification of NASA's visualisation, which is itself built from the sensor data.</p>
+      <p>The globe in the lightning video also rotates as it plays. Some of the rise and fall you hear therefore comes from which side of the Earth is facing the camera, as well as from real changes in the storms.</p>
+    </div>
+  </section>
+
+  <section id="heard" class="split" aria-labelledby="heard-h">
+    <h2 id="heard-h" class="display">built to be heard</h2>
+    <div class="prose">
+      <p>Earth science is usually shared as images, which leaves out blind and low-vision audiences. Every track carries a written description of what is happening and why, and the site works fully with a keyboard and a screen reader.</p>
+      <p class="muted">Made for the 2026 NASA Space Apps Challenge: The Earth Information Jukebox.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot-mark" aria-hidden="true">nāda</p>
+  <div class="credits">
+    <p>Music and production: Sharvari Barhanpure, Singapore</p>
+    <p>Visualisations: NASA Scientific Visualization Studio, items 5011 and 5313</p>
+    <p>Data: ISS Lightning Imaging Sensor; NASA Black Marble (VIIRS)</p>
+  </div>
+</footer>
+
+<dialog id="player" aria-labelledby="player-title">
+  <video id="pvideo" muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="p-top">
+    <button id="p-close" class="p-link" type="button"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Back to the gallery</button>
+    <h2 id="player-title" class="p-title">lightning</h2>
+    <button id="p-describe" class="p-pill" type="button" aria-pressed="true">Describe what I hear</button>
+  </div>
+  <aside class="p-readouts" aria-label="What the data is doing to the sound">
+    <p class="p-kicker">what the earth is playing now</p>
+    <dl id="p-list"></dl>
+    <div id="p-regions" class="p-regions" hidden></div>
+  </aside>
+  <p id="p-caption" class="p-caption" role="status" aria-live="polite"></p>
+  <div class="p-bottom">
+    <div class="p-row"><p id="p-label" class="p-date"></p><p id="p-time" class="p-time">0:00</p></div>
+    <div class="p-timeline">
+      <input id="p-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Position in the track">
+      <div id="p-chapters" class="p-chapters" aria-hidden="true"></div>
+    </div>
+    <div class="p-row left">
+      <button id="p-play" class="p-play" type="button" aria-label="Play"><svg id="p-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+      <p class="p-help">Space plays or pauses. The arrow keys skip five seconds. Escape closes the player.</p>
+    </div>
+  </div>
+  <div id="p-loading" class="p-loading" role="status"><p>Loading the stems… <span id="p-pct">0%</span></p></div>
+</dialog>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
