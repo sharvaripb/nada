@@ -1,6 +1,6 @@
 # nāda
 
-A project for the 2026 NASA Space Apps Challenge, made for the challenge The Earth Information Jukebox. Two NASA visualisations of the Earth at night are measured frame by frame, and their data writes two R&B tracks, lightning and night lights. A website plays each track over its video and mixes the stems live from the same data.
+A project for the 2026 NASA Space Apps Challenge, created for the challenge The Earth Information Jukebox. Two NASA visualisations of the Earth at night are measured frame by frame, and their data directly writes two R&B tracks, lightning and night lights. A website plays each track over its video and mixes the stems live from the same data.
 
 Live site: https://sharvaripb.github.io/nada/
 
@@ -42,6 +42,6 @@ python3 pipeline/compose.py
 
 ffmpeg needs to be installed.
 
-AI tools (Claude) were used to help write the code and the measurement scripts. The music was produced, mixed and arranged by me.
+AI tools (Claude) were used to assist in writing the code and the measurement Python scripts. The music was produced, mixed and arranged by me in Logic Pro.
 
-Visualisations and data courtesy of NASA's Scientific Visualization Studio. NASA does not endorse this project.
+Visualisations and data courtesy of NASA's Scientific Visualization Studio. Created for the 2026 NASA Space Apps Hackathon.
